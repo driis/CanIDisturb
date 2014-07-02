@@ -21,12 +21,12 @@
 <script type="text/javascript" >
   var timer = new disturbTimer(function(now){
     $("#hour").text(now.hour.toString());
-    var minute = now.minute;
+    var minute = now.minute.toString();
     if (minute.length < 2) minute = "0" + minute;
     $("#minute").text(minute);
-    var second = now.second;
+    var second = now.second.toString();
     if (second.length < 2) second = "0" + second;
-    $("#second").text(now.second.toString());
+    $("#second").text(second);
     $("#remaining").text(now.remaining);
     if (now.allowDisturb){
       $("body").css("background-color", "green");
