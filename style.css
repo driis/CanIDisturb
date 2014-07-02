@@ -1,0 +1,19 @@
+body{
+  text-align: center;
+}
+div.container h1
+{
+  font-size: 60px;
+  padding:40px;
+}
+
+div.container span
+{
+  font-size: 75px;
+  font-weight: bold;
+}
+
+div#explanation
+{
+  font-size:30px;
+}

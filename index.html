@@ -1,0 +1,45 @@
+<html>
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="disturb.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Can I Disturb the team ?</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Is now a good time to disturb the team ?</h1>
+    <div id="explanation-container">
+      <span id="yesno">NO</span>
+      <div id="explanation"></div>
+    </div>
+    <span id="remaining"></span><br/>
+    The current time is:<br/>
+  <span id="hour" >00</span><span>:</span><span id="minute" >00</span><span>:</span><span id="second" >00</span>
+
+
+</div>
+<script type="text/javascript" >
+  var timer = new disturbTimer(function(now){
+    $("#hour").text(now.hour.toString());
+    var minute = now.minute;
+    if (minute.length < 2) minute = "0" + minute;
+    $("#minute").text(minute);
+    var second = now.second;
+    if (second.length < 2) second = "0" + second;
+    $("#second").text(now.second.toString());
+    $("#remaining").text(now.remaining);
+    if (now.allowDisturb){
+      $("body").css("background-color", "green");
+      $("#explanation").text("We are out of the zone and ready to chat, remaining:");
+      $("#yesno").text("Yes :-)");
+    }
+    else{
+      $("body").css("background-color", "red");
+      $("#explanation").text("We are busy coding. We will be available to chat in");
+      $("#yesno").text("NO !");
+    }
+  })
+  timer.begin();
+</script>
+</body>
+</html>
